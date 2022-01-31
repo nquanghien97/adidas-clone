@@ -55,6 +55,9 @@ const Container = styled.div`
     align-items: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 4px -2px, rgba(0, 0, 0, 0.3) 0px 3px 4px -3px;
     background-color: white;
+    @media (max-width: 720px) {
+        flex-direction: column;
+    }
 `
 
 const Left = styled.h1`
@@ -62,6 +65,7 @@ const Left = styled.h1`
     display: flex;
     margin-left: 20px;
     cursor: pointer;
+    z-index: 10;
 `
 
 const Center = styled.div`
@@ -69,6 +73,7 @@ const Center = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 `
 
 const MenuItems = styled.a`
@@ -86,6 +91,7 @@ const Right = styled.div`
     flex: 1;
     align-items: center;
     justify-content: flex-end;
+    z-index: 10;
 `
 
 const SearchContainer = styled.div`
@@ -93,12 +99,12 @@ const SearchContainer = styled.div`
     display: flex;
     padding: 5px;
     margin-right: 28px;
+    
 `
 
 const Input = styled.input`
     border: none;
     outline: none;
-    
 `
 
 const IconSearch = styled(SearchIcon)`

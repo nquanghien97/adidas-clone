@@ -1,0 +1,116 @@
+import React from 'react';
+import { trendingItems } from '../data';
+import styled from 'styled-components'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
+
+function Trending() {
+
+    const responsive = {
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 5,
+          slidesToSlide: 2 // optional, default to 1.
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 3,
+          slidesToSlide: 2 // optional, default to 1.
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1,
+          slidesToSlide: 1 // optional, default to 1.
+        }
+      };
+      
+    return(
+        <Container>
+            <Wrapper>
+                <Carousel 
+                responsive={responsive}>
+                    {trendingItems.map((item) => (
+                    <Slide key={item.id}>
+                        <Img src={item.img} />
+                        <TextContainer>
+                            <Title>{item.title}</Title>
+                            <Des>{item.des}</Des>
+                            <BuyButton>Buy now</BuyButton>
+                        </TextContainer>
+                    </Slide>
+                    ))}
+                </Carousel>
+            </Wrapper>
+        </Container>
+    ) 
+}
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+`
+
+const Wrapper = styled.div`
+    width: 1280px;
+    // @media(min-width: 1020px) {
+    //     width: 1280px;
+    // }
+    // @media(min-width: 720px) {
+    //     width: 720px;
+    // }
+    @media(min-width: 360px) {
+        width: 100%
+    }
+`
+
+const Slide = styled.div`
+
+`
+
+const ButtonGroup = styled.button`
+
+`
+
+const Img = styled.img`
+    width: 100%;
+    padding: 8px;
+`
+
+const TextContainer = styled.div`
+    height: 180px;
+    position: relative;
+`
+
+const Title = styled.h1`
+    font-size: 18px;
+    margin: 0 8px 8px 8px;
+    
+`
+
+const Des = styled.p`
+    font-size: 16px;
+    margin: 0 8px 8px 8px;
+    opacity: 0.8;
+`
+
+const BuyButton = styled.a`
+    margin: 0 8px 8px 8px;
+    position: absolute;
+    bottom: 0;
+    text-decoration: underline;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+`
+
+
+
+export default Trending;
