@@ -33,6 +33,7 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
     margin-top: 20px;
+    margin-bottom: 150px;
 `
 
 const Title = styled.h1`

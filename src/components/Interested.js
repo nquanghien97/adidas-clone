@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import { shoesItems } from '../data'
+import { interested } from '../data'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 
 function Interested() {
-
+    //Slider
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -56,7 +56,7 @@ function Interested() {
                 <Carousel 
                 arrows={false} renderButtonGroupOutside={true} customButtonGroup={<ButtonGroup />}
                 responsive={responsive}>
-                    {shoesItems.map((item) => (
+                    {interested.map((item) => (
                         <Slide key={item.id}>
                             <Image src={item.img} />
                             <Price> {item.price} </Price>
@@ -84,7 +84,6 @@ const ButtonTwo = styled.button`
     background-color: transparent;
     border: none;
 `
-const ButtonThree = styled.button``
 
 const Container = styled.div`
     overflow: hidden;

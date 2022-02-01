@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 
 
 function Trending() {
-
+    // Slider
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -51,17 +51,19 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    padding: 0 15px;
 `
 
 const Wrapper = styled.div`
-    width: 1280px;
+        width: 1280px;
+    
     // @media(min-width: 1020px) {
     //     width: 1280px;
     // }
     // @media(min-width: 720px) {
     //     width: 720px;
     // }
-    @media(min-width: 360px) {
+    @media(min-width: 464px) {
         width: 100%
     }
 `
@@ -70,9 +72,8 @@ const Slide = styled.div`
 
 `
 
-const ButtonGroup = styled.button`
 
-`
+
 
 const Img = styled.img`
     width: 100%;
