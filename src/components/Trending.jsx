@@ -26,25 +26,33 @@ function Trending() {
       };
       
     return(
-        <Container>
-            <Wrapper>
-                <Carousel 
-                responsive={responsive}>
-                    {trendingItems.map((item) => (
-                    <Slide key={item.id}>
-                        <Img src={item.img} />
-                        <TextContainer>
-                            <Title>{item.title}</Title>
-                            <Des>{item.des}</Des>
-                            <BuyButton>Buy now</BuyButton>
-                        </TextContainer>
-                    </Slide>
-                    ))}
-                </Carousel>
-            </Wrapper>
-        </Container>
+        <>
+            <Text>What's Hot</Text>
+            <Container>
+                <Wrapper>
+                    <Carousel 
+                    responsive={responsive}>
+                        {trendingItems.map((item) => (
+                        <Slide key={item.id}>
+                            <Img src={item.img} />
+                            <TextContainer>
+                                <Title>{item.title}</Title>
+                                <Des>{item.des}</Des>
+                                <BuyButton>Buy now</BuyButton>
+                            </TextContainer>
+                        </Slide>
+                        ))}
+                    </Carousel>
+                </Wrapper>
+            </Container>
+        </>
     ) 
 }
+
+const Text = styled.h1`
+    padding: 10px 25px;
+    text-transform: uppercase;
+`
 
 const Container = styled.div`
     display: flex;
@@ -52,11 +60,12 @@ const Container = styled.div`
     align-items: center;
     cursor: pointer;
     padding: 0 15px;
+    margin-bottom: 100px;
 `
 
 const Wrapper = styled.div`
-        width: 1280px;
-    
+        // width: 1280px;
+    width: 100%;
     // @media(min-width: 1020px) {
     //     width: 1280px;
     // }
@@ -77,7 +86,7 @@ const Slide = styled.div`
 
 const Img = styled.img`
     width: 100%;
-    padding: 8px;
+    padding: 10px;
 `
 
 const TextContainer = styled.div`
