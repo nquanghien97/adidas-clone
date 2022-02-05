@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import {mobile} from '../responsive'
 
 function Ultraboot() {
     return (
@@ -49,6 +50,7 @@ const Wrapper = styled.div`
     position: absolute;
     width: 30%;
     margin-left: 130px;
+    ${mobile({width:'100%',marginLeft:0, display:'flex',justifyContent: 'space-between', alignItems: 'center',})};
 `
 
 const Title = styled.h1`
@@ -56,12 +58,14 @@ const Title = styled.h1`
     font-size: 42px;
     font-weight: 600;
     text-transform: uppercase;
+    ${mobile({fontSize:28, marginBottom:0, marginLeft: 8})};
 `
 
 const TextItem = styled.p`
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: lighter;
+    ${mobile({display:'none'})};
 `
 
 const ButtonContainer = styled.div`
@@ -69,16 +73,7 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 1;
-    &:before {
-        content: '';
-        position: absolute;
-        border: 1px solid white;
-        width: 153px;
-        height: calc(100% - 3px) ;
-        top: 4px;
-        left: 5px;
-        right: -3px;
-        z-index: -1;
+    ${mobile({maxWidth:150, marginRight: 8})};
 `
 
 const Button = styled.button`

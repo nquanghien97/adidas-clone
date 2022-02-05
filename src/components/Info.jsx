@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import {mobile} from '../responsive'
 
 function Info() {
   return(
@@ -90,6 +91,7 @@ const Wrapper = styled.div`
 
 const ContentItem = styled.div`
     padding: 12px;
+    ${mobile({padding:8})};
 `
 
 const Title = styled.h3`

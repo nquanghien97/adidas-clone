@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {mobile} from '../responsive'
 
 function Announcements() {
     return (
@@ -21,8 +22,9 @@ const  Container = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 30px;
+    min-height: 30px;
     background-color: black;
+    ${mobile({display:'none'})};
 `
 
 const Items = styled.a`

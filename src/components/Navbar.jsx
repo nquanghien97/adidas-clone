@@ -4,6 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import { Badge } from '@material-ui/core';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
+import {mobile} from '../responsive'
 
 function Navbar() {
     return (
@@ -51,7 +52,7 @@ function Navbar() {
 const Container = styled.div`
     display: flex;
     padding: 12px;
-    height: 70px;
+    min-height: 70px;
     align-items: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 4px -2px, rgba(0, 0, 0, 0.3) 0px 3px 4px -3px;
     background-color: white;
@@ -74,6 +75,7 @@ const Center = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 10;
+    ${mobile({marginTop:8, marginBottom:8})};
 `
 
 const MenuItems = styled.a`
@@ -84,14 +86,17 @@ const MenuItems = styled.a`
         background-color: #ccc;
         border-radius: 10px;
     }
+    ${mobile({padding: 8, backgroundColor:'#ccc',borderRadius: 10, margin:2})};
 `
 
 const Right = styled.div`
+    width: 100%;
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: flex-end;
     z-index: 10;
+    ${mobile({justifyContent:'space-between'})};
 `
 
 const SearchContainer = styled.div`
@@ -99,7 +104,8 @@ const SearchContainer = styled.div`
     display: flex;
     padding: 5px;
     margin-right: 28px;
-    
+    justify-content: space-between;
+    ${mobile({flex:1})};
 `
 
 const Input = styled.input`
@@ -114,6 +120,7 @@ const IconSearch = styled(SearchIcon)`
 const IconContainer = styled.div`
     display: flex;
     margin-right: 24px;
+    ${mobile({marginRight:0})};
 `
 
 const IconItems = styled.div`

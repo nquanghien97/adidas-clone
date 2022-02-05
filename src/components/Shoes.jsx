@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { shoesItems } from '../data'
+import {mobile} from '../responsive'
 
 function Shoes() {
 
@@ -61,6 +62,7 @@ const Container = styled.div`
     padding:  0 15px;
     position: relative;
     padding-bottom: 30px;
+    ${mobile({padding:0})};
 `
 
 const TextContainer = styled.h1`
@@ -79,6 +81,7 @@ const Slide = styled.div`
     &:hover {
         border: 1px solid black;
     }
+    ${mobile({margin:0})};
 `
 
 const Img = styled.img`

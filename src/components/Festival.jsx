@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import {mobile} from '../responsive'
 
 
 function Festival() {
@@ -49,6 +50,7 @@ const Wrapper = styled.div`
     position: absolute;
     width: 33.33%;
     margin-left: 130px;
+    ${mobile({display:'flex', justifyContent: 'space-between',width:'100%', marginLeft:6})};
 `
 
 const Title = styled.h1`
@@ -56,12 +58,14 @@ const Title = styled.h1`
     font-size: 42px;
     font-weight: 600;
     text-transform: uppercase;
+    ${mobile({display:'none'})};
 `
 
 const TextItem = styled.p`
     font-size: 20px;
     margin-bottom: 20px;
     font-weight: lighter;
+    ${mobile({fontSize:28,})};
 `
 
 const ButtonContainer = styled.div`
@@ -69,16 +73,7 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 1;
-    &:before {
-        content: '';
-        position: absolute;
-        border: 1px solid black;
-        width: 153px;
-        height: calc(100% - 3px) ;
-        top: 4px;
-        left: 5px;
-        right: -3px;
-        z-index: -1;
+    ${mobile({maxWidth:150,marginRight:12,marginTop:16})};
 `
 
 const Button = styled.button`
@@ -96,6 +91,7 @@ const Button = styled.button`
     &:hover {
         color: #ccc;
     }
+    ${mobile({padding:16})};
 `
 
 const IconArrow = styled(ArrowRightAltIcon)`

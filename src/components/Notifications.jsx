@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import {mobile} from '../responsive'
 
 function notifications() {
   return(
@@ -21,14 +22,15 @@ function notifications() {
 }
 
 const Container = styled.div`
+    width: 100%;
     background-color: #ede734;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 `
 
 const Wrapper = styled.div`
-    padding: 40px 20px;
+    padding: 40px 0px;
     max-width: 960px;
     display: flex;
 `
@@ -36,6 +38,7 @@ const Wrapper = styled.div`
 const TextContainer = styled.h2`
   margin-right: 20px;
   font-size: 30px;
+  ${mobile({marginRight:0,fontSize:24})};
 `
 
 const ButtonContainer = styled.div`
@@ -44,16 +47,7 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 1;
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     border-right: 1px solid black;
-    //     border-top: 1px solid black;
-    //     height: calc(100% - 3px) ;
-    //     top: 4px;
-    //     left: 5px;
-    //     right: -3px;
-    //     z-index: -1;
+    ${mobile({display:'flex',alignItems: 'center',justifyContent: 'space-between'})};
 `
 
 const Button = styled.button`

@@ -3,7 +3,8 @@ import { trendingItems } from '../data';
 import styled from 'styled-components'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import {mobile} from '../responsive'
+ 
 
 function Trending() {
     // Slider
@@ -61,17 +62,11 @@ const Container = styled.div`
     cursor: pointer;
     padding: 0 15px;
     margin-bottom: 100px;
+    ${mobile({padding:0, marginBottom:20})};
 `
 
 const Wrapper = styled.div`
-        // width: 1280px;
     width: 100%;
-    // @media(min-width: 1020px) {
-    //     width: 1280px;
-    // }
-    // @media(min-width: 720px) {
-    //     width: 720px;
-    // }
     @media(min-width: 464px) {
         width: 100%
     }
@@ -81,17 +76,16 @@ const Slide = styled.div`
 
 `
 
-
-
-
 const Img = styled.img`
     width: 100%;
     padding: 10px;
+    ${mobile({padding:0})};
 `
 
 const TextContainer = styled.div`
     height: 180px;
     position: relative;
+    ${mobile({height:120})};
 `
 
 const Title = styled.h1`
@@ -119,6 +113,7 @@ const BuyButton = styled.a`
         background-color: black;
         color: white;
     }
+    ${mobile({bottom:0})};
 `
 
 

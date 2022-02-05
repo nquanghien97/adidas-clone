@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import {mobile} from '../responsive'
 
 function Saleoff() {
     return (
@@ -40,13 +41,14 @@ const Wrapper = styled.div`
     width: 33.33333%;
     position: absolute;
     margin-left: 130px;
-
+    ${mobile({marginLeft:16})};
 `
 
 const TextItem = styled.h1`
     font-size: 22px;
     line-height: 32px;
     color: white;
+    ${mobile({display:'none'})};
 `
 
 const ButtonContainer = styled.div`
@@ -54,16 +56,6 @@ const ButtonContainer = styled.div`
     width: 100%;
     height: 100%;
     z-index: 1;
-    &:before {
-        content: '';
-        position: absolute;
-        border: 1px solid white;
-        width: 152px;
-        height: calc(100% - 3px) ;
-        top: 4px;
-        left: 5px;
-        right: -3px;
-        z-index: -1;
 `
 
 const Button = styled.button`

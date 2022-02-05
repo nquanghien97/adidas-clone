@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import {mobile} from '../responsive'
 
 function Popular() {
   return(
@@ -34,6 +35,7 @@ const Container = styled.div`
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 140px;
+    ${mobile({marginBottom:40})};
 `
 
 const Title = styled.h1`

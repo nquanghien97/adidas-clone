@@ -5,6 +5,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import { interested } from '../data'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import {mobile} from '../responsive'
 
 
 function Interested() {
@@ -76,6 +77,7 @@ const ButtonOne = styled.button`
     right: 100px;
     background-color: transparent;
     border: none;
+    ${mobile({top:100, left: 20})};
 `
 const ButtonTwo = styled.button`
     position: absolute;
@@ -83,6 +85,7 @@ const ButtonTwo = styled.button`
     right: 40px;
     background-color: transparent;
     border: none;
+    ${mobile({top: 100, right: 20})};
 `
 
 const Container = styled.div`
@@ -102,6 +105,7 @@ const InterestedText = styled.h1`
     font-size: 40px;
     margin-left: 135px;
     letter-spacing: 2px;
+    ${mobile({marginLeft:0})};
 `
 
 const IconItems = styled.div`
@@ -114,7 +118,6 @@ const IconItems = styled.div`
 `
 
 const Wrapper = styled.div`
-    
 `
 
 const Slide = styled.div`
@@ -125,6 +128,7 @@ const Slide = styled.div`
     &:hover{
         border: 1px solid black;
     }
+    ${mobile({margin: 0, marginTop: 12})};
 `
 
 const Image = styled.img`
