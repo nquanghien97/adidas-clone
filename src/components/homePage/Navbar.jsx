@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import { Badge } from '@material-ui/core';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
-import {mobile} from '../responsive'
+import {mobile} from '../../responsive'
 
 function Navbar() {
     return (

@@ -1,9 +1,8 @@
-import React from 'react';
-import { trendingItems } from '../data';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import {mobile} from '../responsive'
+import {mobile} from '../../responsive'
  
 
 function Trending() {
@@ -25,6 +24,31 @@ function Trending() {
           slidesToSlide: 1 // optional, default to 1.
         }
       };
+
+    //api
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch("https://62a591d8b9b74f766a3ba5db.mockapi.io/api/trending")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              setIsLoaded(true);
+              setItems(result);
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+              }
+            )
+        }, [])
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {    
       
     return(
         <>
@@ -33,13 +57,13 @@ function Trending() {
                 <Wrapper>
                     <Carousel 
                     responsive={responsive}>
-                        {trendingItems.map((item) => (
+                        {items.map((item) => (
                         <Slide key={item.id}>
-                            <Img src={item.img} />
+                            <Img src={item.avatar} />
                             <TextContainer>
-                                <Title>{item.title}</Title>
-                                <Des>{item.des}</Des>
-                                <BuyButton>Buy now</BuyButton>
+                                <Title>{item.name}</Title>
+                                <Des>{item.description}</Des>
+                                <BuyButton>{item.buy}</BuyButton>
                             </TextContainer>
                         </Slide>
                         ))}
@@ -47,7 +71,7 @@ function Trending() {
                 </Wrapper>
             </Container>
         </>
-    ) 
+    )} 
 }
 
 const Text = styled.h1`

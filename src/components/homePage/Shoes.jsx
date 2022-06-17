@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { shoesItems } from '../data'
-import {mobile} from '../responsive'
+import {mobile} from '../../responsive'
 
 function Shoes() {
 
@@ -25,8 +24,31 @@ function Shoes() {
           slidesToSlide: 1 // optional, default to 1.
         }
       };
+    //api
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
 
-  return(
+    useEffect(() => {
+        fetch("https://62a591d8b9b74f766a3ba5db.mockapi.io/api/shoes")
+          .then(res => res.json())
+          .then(
+            (result) => {
+              setIsLoaded(true);
+              setItems(result);
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+              }
+            )
+        }, [])
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {    
+    return(
         <Container>
             <TextContainer>
                 NEW ARRIVALS
@@ -36,13 +58,13 @@ function Shoes() {
                     arrows={true} showDots={true}
                     renderDotsOutside={renderButtonGroupOutside}
                     responsive={responsive}>
-                        {shoesItems.map((item) => (
+                        {items.map((item) => (
                         <Slide key={item.id}>
-                            <Img src={item.img} />
+                            <Img src={item.avatar} />
                             <TextItem>
                                 <Price> {item.price} </Price>
-                                <Title>{item.title}</Title>
-                                <Des>{item.des}</Des>
+                                <Title>{item.name}</Title>
+                                <Des>{item.description}</Des>
                                 <Status>{item.status}</Status>
                             </TextItem>
                         </Slide>
@@ -50,7 +72,7 @@ function Shoes() {
                 </Carousel>
             </Wrapper>
         </Container>
-  );
+    )}
 }
 
 const renderButtonGroupOutside = styled.div`

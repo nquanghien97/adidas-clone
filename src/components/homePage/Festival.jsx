@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import {mobile} from '../responsive'
+import {mobile} from '../../responsive'
 
 
 function Festival() {
