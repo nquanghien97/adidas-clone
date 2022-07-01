@@ -4,9 +4,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import { Badge } from '@material-ui/core';
 import FavoriteBorderSharpIcon from '@material-ui/icons/FavoriteBorderSharp';
-import {mobile} from '../../responsive'
+import { mobile } from '../../responsive';
 
-function Navbar() {
+function Navbar(props) {
+
     return (
         <Container>
             <Left>
@@ -39,7 +40,7 @@ function Navbar() {
                         <FavoriteBorderSharpIcon />
                     </IconItems>
                     <IconItems>
-                        <Badge badgeContent={4} color="secondary">
+                        <Badge badgeContent={props.numberCart} color="secondary">
                             <ShoppingCartSharpIcon />
                         </Badge>
                     </IconItems>
@@ -127,6 +128,5 @@ const IconItems = styled.div`
     margin-right: 28px;
     cursor: pointer;
 `
-
 
 export default Navbar

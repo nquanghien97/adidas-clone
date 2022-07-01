@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import {mobile} from '../../responsive'
 
-function notifications() {
+function Notifications() {
   return(
       <Container>
           <Wrapper>
@@ -72,4 +72,4 @@ const IconArrow = styled(ArrowRightAltIcon)`
     margin-left: 8px;
 `
 
-export default notifications;
+export default Notifications;
